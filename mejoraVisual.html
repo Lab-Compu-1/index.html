@@ -1,1 +1,443 @@
+```html
+<!DOCTYPE html>
+
+<!-- Documento HTML5 -->
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Panel de Riego</title>
+
+
+<style>
+
+/* ========================= */
+/* ESTILO GENERAL */
+/* Aplica a toda la página */
+/* ========================= */
+
+body{
+
+font-family:'Segoe UI',sans-serif;
+
+background:#eef5f1;
+
+margin:0;
+
+padding:0;
+
+}
+
+
+
+/* ========================= */
+/* BARRA SUPERIOR */
+/* ========================= */
+
+.header{
+
+background:#1b5e20;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+.header img{
+
+width:250px;
+
+}
+
+
+
+/* ========================= */
+/* CONTENEDOR CENTRAL */
+/* Limita ancho y centra */
+/* ========================= */
+
+.container{
+
+max-width:900px;
+
+margin:auto;
+
+padding:20px;
+
+}
+
+
+
+/* ========================= */
+/* TARJETAS */
+/* Cajas visuales */
+/* ========================= */
+
+.card{
+
+background:white;
+
+padding:20px;
+
+margin-bottom:20px;
+
+border-radius:12px;
+
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+button{
+
+padding:12px;
+
+border:none;
+
+border-radius:8px;
+
+background:#2e7d32;
+
+color:white;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+width:100%;
+
+}
+
+
+
+/* ========================= */
+/* EFECTO AL PASAR MOUSE */
+/* ========================= */
+
+button:hover{
+
+opacity:0.9;
+
+}
+
+
+
+/* ========================= */
+/* INPUTS */
+/* ========================= */
+
+input{
+
+width:100%;
+
+padding:10px;
+
+margin-top:8px;
+
+margin-bottom:15px;
+
+border-radius:6px;
+
+border:1px solid #ccc;
+
+}
+
+
+
+/* ========================= */
+/* GRID DE DÍAS */
+/* Organiza en columnas */
+/* ========================= */
+
+.dias{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:10px;
+
+}
+
+
+
+/* ========================= */
+/* BOTÓN SITIO WEB */
+/* ========================= */
+
+.webBtn{
+
+display:block;
+
+background:#1565c0;
+
+padding:12px;
+
+text-align:center;
+
+text-decoration:none;
+
+color:white;
+
+border-radius:8px;
+
+font-weight:bold;
+
+}
+
+
+
+/* ========================= */
+/* VIDEO */
+/* ========================= */
+
+video{
+
+width:100%;
+
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<!-- ========================= -->
+<!-- ENCABEZADO -->
+<!-- ========================= -->
+
+<div class="header">
+
+<img src="Isologotipo horizontal.png">
+
+</div>
+
+
+
+<div class="container">
+
+
+
+<!-- ========================= -->
+<!-- NAVEGACIÓN -->
+<!-- ========================= -->
+
+<div class="card">
+
+<a href="mejoraVisual.html">
+
+<button>
+
+Mejorar visualmente la página HTML
+
+</button>
+
+</a>
+
+</div>
+
+
+
+<!-- ========================= -->
+<!-- SITIO OFICIAL -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+
+🌱 Sitio Oficial
+
+</h2>
+
+
+<a
+href="https://www.plantafacil.com.ar"
+target="_blank"
+class="webBtn">
+
+Visitar PlantaFácil
+
+</a>
+
+</div>
+
+
+
+
+<!-- ========================= -->
+<!-- CONTROL -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+
+🎛️ Control
+
+</h2>
+
+<button>
+
+OFF
+
+</button>
+
+</div>
+
+
+
+
+<!-- ========================= -->
+<!-- CONFIGURACIÓN -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+
+⚙️ Nueva Configuración
+
+</h2>
+
+
+<form>
+
+<div class="dias">
+
+<label>
+<input type="checkbox">
+Lunes
+</label>
+
+<label>
+<input type="checkbox">
+Martes
+</label>
+
+<label>
+<input type="checkbox">
+Miércoles
+</label>
+
+<label>
+<input type="checkbox">
+Jueves
+</label>
+
+<label>
+<input type="checkbox">
+Viernes
+</label>
+
+<label>
+<input type="checkbox">
+Sábado
+</label>
+
+<label>
+<input type="checkbox">
+Domingo
+</label>
+
+</div>
+
+
+<p>Hora inicio</p>
+
+<input type="time">
+
+
+<p>Hora fin</p>
+
+<input type="time">
+
+
+<button type="submit">
+
+📡 Enviar
+
+</button>
+
+</form>
+
+</div>
+
+
+
+
+<!-- ========================= -->
+<!-- PROGRAMACIONES -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+
+🌱 Programaciones
+
+</h2>
+
+<p>
+
+Aquí aparecerán los riegos configurados
+
+</p>
+
+</div>
+
+
+
+
+<!-- ========================= -->
+<!-- VIDEO -->
+<!-- ========================= -->
+
+<div class="card">
+
+<h2>
+
+📽 Presentación
+
+</h2>
+
+<video controls>
+
+<source
+src="Video Presentacion HF - Tramo1_02.mp4"
+type="video/mp4">
+
+Tu navegador no soporta video.
+
+</video>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+```
 
