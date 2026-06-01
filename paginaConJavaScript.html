@@ -1,1 +1,549 @@
+<!DOCTYPE html>
 
+<!-- Documento HTML5 -->
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Panel de Riego</title>
+
+
+<!-- ================================================= -->
+<!-- CSS: Apariencia visual                            -->
+<!-- ================================================= -->
+
+<style>
+
+/* Estilo general de la página */
+body{
+
+font-family:'Segoe UI',sans-serif;
+background:#eef5f1;
+margin:0;
+padding:0;
+
+}
+
+
+/* Encabezado superior */
+.header{
+
+background:#1b5e20;
+padding:20px;
+text-align:center;
+
+}
+
+
+/* Tamaño del logo */
+.header img{
+
+width:250px;
+
+}
+
+
+/* Contenedor principal */
+.container{
+
+max-width:900px;
+margin:auto;
+padding:20px;
+
+}
+
+
+/* Tarjetas visuales */
+.card{
+
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+/* Botones */
+button{
+
+padding:12px;
+border:none;
+border-radius:8px;
+background:#2e7d32;
+color:white;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+width:100%;
+
+}
+
+
+/* Efecto al pasar el mouse */
+button:hover{
+
+opacity:0.9;
+
+}
+
+
+/* Campos de entrada */
+input{
+
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:15px;
+border-radius:6px;
+border:1px solid #ccc;
+
+}
+
+
+/* Organizar días en columnas */
+.dias{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+
+}
+
+
+/* Botón sitio web */
+.webBtn{
+
+display:block;
+background:#1565c0;
+padding:12px;
+text-align:center;
+text-decoration:none;
+color:white;
+border-radius:8px;
+font-weight:bold;
+
+}
+
+
+/* Video */
+video{
+
+width:100%;
+border-radius:10px;
+
+}
+
+
+/* Tarjeta creada por JavaScript */
+.riego{
+
+background:#f1f8e9;
+padding:10px;
+border-left:5px solid green;
+margin-top:10px;
+border-radius:8px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- HTML: Encabezado                                  -->
+<!-- ================================================= -->
+
+<div class="header">
+
+<img src="Isologotipo horizontal.png">
+
+</div>
+
+
+<div class="container">
+
+
+
+<!-- ================================================= -->
+<!-- Sitio oficial                                     -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🌱 Sitio Oficial</h2>
+
+<a
+href="https://www.plantafacil.com.ar"
+target="_blank"
+class="webBtn">
+
+Visitar PlantaFácil
+
+</a>
+
+</div>
+
+
+
+
+<!-- ================================================= -->
+<!-- Control ON/OFF                                    -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🎛️ Control</h2>
+
+<button id="botonControl">
+
+OFF
+
+</button>
+
+</div>
+
+
+
+
+
+<!-- ================================================= -->
+<!-- Configuración                                     -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>⚙️ Nueva Configuración</h2>
+
+<form id="formulario">
+
+<div class="dias">
+
+<label>
+<input type="checkbox">
+Lunes
+</label>
+
+<label>
+<input type="checkbox">
+Martes
+</label>
+
+<label>
+<input type="checkbox">
+Miércoles
+</label>
+
+<label>
+<input type="checkbox">
+Jueves
+</label>
+
+<label>
+<input type="checkbox">
+Viernes
+</label>
+
+<label>
+<input type="checkbox">
+Sábado
+</label>
+
+<label>
+<input type="checkbox">
+Domingo
+</label>
+
+</div>
+
+
+<p>Hora inicio</p>
+
+<input
+type="time"
+id="inicio">
+
+
+<p>Hora fin</p>
+
+<input
+type="time"
+id="fin">
+
+
+<button type="submit">
+
+📡 Enviar
+
+</button>
+
+</form>
+
+
+<!-- Mensajes -->
+<p id="mensaje"></p>
+
+</div>
+
+
+
+
+
+<!-- ================================================= -->
+<!-- Programaciones                                    -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>🌱 Programaciones</h2>
+
+<div id="lista">
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ================================================= -->
+<!-- Video                                             -->
+<!-- ================================================= -->
+
+<div class="card">
+
+<h2>📽 Presentación</h2>
+
+<video controls>
+
+<source
+src="Video Presentacion HF - Tramo1_02.mp4"
+type="video/mp4">
+
+Tu navegador no soporta video
+
+</video>
+
+</div>
+
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT: comportamiento                        -->
+<!-- ================================================= -->
+
+<script>
+
+
+/* Obtener elementos HTML */
+
+const botonControl=
+document.getElementById("botonControl");
+
+const formulario=
+document.getElementById("formulario");
+
+const lista=
+document.getElementById("lista");
+
+const mensaje=
+document.getElementById("mensaje");
+
+const inicio=
+document.getElementById("inicio");
+
+const fin=
+document.getElementById("fin");
+
+const checks=
+document.querySelectorAll(
+'input[type="checkbox"]'
+);
+
+
+
+
+/* Variable que almacena estado */
+
+let sistemaEncendido=false;
+
+
+
+
+/* Evento del botón ON/OFF */
+
+botonControl.addEventListener(
+
+"click",
+
+function(){
+
+
+/* Invierte verdadero/falso */
+
+sistemaEncendido=
+!sistemaEncendido;
+
+
+
+/* Cambiar texto */
+
+if(sistemaEncendido){
+
+botonControl.innerText="ON";
+
+}
+else{
+
+botonControl.innerText="OFF";
+
+}
+
+}
+
+);
+
+
+
+
+
+/* Evento del formulario */
+
+formulario.addEventListener(
+
+"submit",
+
+function(e){
+
+/* Evita recargar página */
+
+e.preventDefault();
+
+
+
+/* Arreglo para guardar días */
+
+let dias=[];
+
+
+
+/* Recorrer checkbox */
+
+checks.forEach(function(c){
+
+if(c.checked){
+
+dias.push(
+c.parentElement.innerText
+);
+
+}
+
+});
+
+
+
+/* Validación */
+
+if(
+
+dias.length===0 ||
+
+inicio.value==="" ||
+
+fin.value===""
+
+){
+
+mensaje.innerText=
+
+"⚠ Complete todos los datos";
+
+return;
+
+}
+
+
+
+/* Validar horario */
+
+if(
+
+fin.value<=inicio.value
+
+){
+
+mensaje.innerText=
+
+"⚠ Hora inválida";
+
+return;
+
+}
+
+
+
+/* Agregar programación */
+
+lista.innerHTML +=`
+
+<div class="riego">
+
+<strong>
+
+Riego ${lista.children.length+1}
+
+</strong>
+
+<p>
+
+${dias.join(", ")}
+
+</p>
+
+<p>
+
+${inicio.value}
+-
+${fin.value}
+
+</p>
+
+</div>
+
+`;
+
+
+
+/* Mostrar éxito */
+
+mensaje.innerText=
+
+"✅ Configuración enviada";
+
+
+
+/* Limpiar formulario */
+
+formulario.reset();
+
+}
+
+);
+
+
+</script>
+
+</body>
+
+</html>
