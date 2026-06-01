@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<!-- Documento HTML5 -->
+<html lang="es">
+
+<head>
+
+    <!-- Permite caracteres especiales (á, é, ñ, etc.) -->
+    <meta charset="UTF-8">
+
+    <!-- Título de la pestaña del navegador -->
+    <title>Panel de Riego</title>
+
+</head>
+
+
+<body>
+
+    <!-- ========================= -->
+    <!-- ENCABEZADO -->
+    <!-- ========================= -->
+
+    <div>
+
+        <!-- Logo de la empresa -->
+        <img src="IDENTIDAD HUERTAS FAMILIARES FONDO BLANCO.jpg">
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- CONTENEDOR PRINCIPAL -->
+    <!-- ========================= -->
+
+    <div>
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN CONTROL -->
+        <!-- ========================= -->
+
+        <div>
+
+            <!-- Título -->
+            <h2>🎛️ Control</h2>
+
+            <!-- Botón ON/OFF -->
+            <button>
+
+                OFF
+
+            </button>
+
+        </div>
+
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN CONFIGURACIÓN -->
+        <!-- ========================= -->
+
+        <div>
+
+            <h2>
+
+                ⚙️ Nueva configuración
+
+            </h2>
+
+
+            <!-- Formulario para cargar datos -->
+            <form>
+
+
+                <!-- Grupo de selección de días -->
+                <div>
+
+
+                    <!-- Checkbox: permite múltiples selecciones -->
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Lunes
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Martes
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Miércoles
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Jueves
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Viernes
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Sábado
+
+                    </label>
+
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Domingo
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- Selector de hora de inicio -->
+
+                <input type="time">
+
+
+                <!-- Selector de hora de finalización -->
+
+                <input type="time">
+
+
+
+                <!-- Botón que envía el formulario -->
+
+                <button type="submit">
+
+                    📡 Enviar
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- Lugar para mostrar mensajes -->
+
+            <p>
+
+            </p>
+
+        </div>
+
+
+
+
+
+        <!-- ========================= -->
+        <!-- SECCIÓN PROGRAMACIONES -->
+        <!-- ========================= -->
+
+        <div>
+
+            <h2>
+
+                🌱 Programaciones
+
+            </h2>
+
+
+            <!-- Aquí luego JavaScript agregará datos -->
+
+            <div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+
